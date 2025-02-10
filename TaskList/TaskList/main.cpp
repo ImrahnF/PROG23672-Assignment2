@@ -4,11 +4,12 @@
 //
 //  Created by Imrahn Faqiri on 2025-02-09.
 //
-
+#include "Deque.h"
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Deque<string> dq;
     return 0;
 }
