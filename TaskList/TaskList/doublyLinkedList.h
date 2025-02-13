@@ -30,8 +30,8 @@ public:
     }
     
     // get head and tail
-    SNode<E>* getHead() const { return head; }
-    SNode<E>* getTail() const { return tail; }
+    const SNode<E>* getHead() const { return head; }
+    const SNode<E>* getTail() const { return tail; }
     
     // return size of list
     int size() const {

@@ -12,11 +12,16 @@ using namespace std;
 int main() {
     Deque<int> dq;
     
+    dq.print();
+    dq.printRev();
+    dq.clear();
+    /*
     dq.pushLeft(123);
     dq.pushRight(456);
     dq.pushRight(789);
     dq.print();
     dq.clear();
     dq.printRev();
+    */
     return 0;
 }

@@ -20,7 +20,7 @@ private:
 public:
     // Constructor and Destructor
     Deque() { cout << "Deque has been created!" << endl; }
-    ~Deque() { cout << "Deque has been destroyed." << endl; }
+    ~Deque() { clear(); }
 
     // strucyutre
     bool isEmpty() const {
@@ -40,17 +40,25 @@ public:
     }
     
     T popLeft() {
-        if (isEmpty()) { cerr << "Error: list is empty; cannot popLeft()" << endl;}
-        T elem = list.first();
-        list.removeFirst();
-        return elem;
+        if (isEmpty()) {
+            throw std::runtime_error("\nError: list is empty; cannot popLeft()");
+            // maybe return a nullptr
+        } else {
+            T elem = list.first();
+            list.removeFirst();
+            return elem;
+        }
     }
     
     T popRight() {
-        if (isEmpty()) { cerr << "Error: list is empty; cannot popRight()" << endl;}
-        T elem = list.last();
-        list.removeLast();
-        return elem;
+        if (isEmpty()) {
+            throw std::runtime_error("\nError: list is empty; cannot popRight()");
+            // maybe return a nullptr
+        } else {
+            T elem = list.last();
+            list.removeLast();
+            return elem;
+        }
     }
     
     void clear() {
