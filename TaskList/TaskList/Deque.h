@@ -26,14 +26,44 @@ public:
     bool isEmpty() const {
         return list.empty();
     }
-    int size() const;
-    void pushLeft(const T& item);
-    void pushRight(const T& item);
-    T popLeft();
-    T popRight();
-    void clear();
-    void print() const;
-    void printRev() const;
+    
+    int size() const {
+        return list.size();
+    }
+    void pushLeft(const T& item) {
+        list.addFirst(item);
+    }
+    
+    void pushRight(const T& item) {
+        list.addLast(item);
+    }
+    
+    T popLeft() {
+        if (isEmpty()) { cerr << "Error: list is empty; cannot popLeft()" << endl;}
+        T elem = list.first();
+        list.removeFirst();
+        return elem;
+    }
+    
+    T popRight() {
+        if (isEmpty()) { cerr << "Error: list is empty; cannot popRight()" << endl;}
+        T elem = list.last();
+        list.removeLast();
+        return elem;
+    }
+    
+    void clear() {
+        
+    }
+    
+    void print() {
+        
+    }
+    
+    void printRev() {
+        
+    }
+    
 };
 
 #endif /* Deque_h */

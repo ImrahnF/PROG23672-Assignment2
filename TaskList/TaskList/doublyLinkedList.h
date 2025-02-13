@@ -28,6 +28,11 @@ public:
         head->next = tail;
         tail->prev = head;
     }
+    
+    // return size of list
+    int size() const {
+        return sz;
+    }
 
     bool empty() const {
         return sz == 0;
