@@ -10,6 +10,9 @@
 using namespace std;
 
 int main() {
-    Deque<string> dq;
+    Deque<int> dq;
+    cout << dq.isEmpty() << endl;
+    
+    
     return 0;
 }

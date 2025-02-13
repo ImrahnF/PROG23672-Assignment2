@@ -8,42 +8,24 @@
 #ifndef Deque_h
 #define Deque_h
 
+#include "doublyLinkedList.h"
 #include <iostream>
 
 using namespace std;
 
-// Using a forward declartion so that it can be aware of Deque when declaring it as a friend class
-// Had many errors there ^
-template <typename T>
-class Deque;
-
-template <typename T>
-class Node {
-public:
-    T element;
-    Node<T>* next;
-    Node<T>* previous;
-    
-    // Constructor
-    Node(const T& e = T{}, Node<T>* n = nullptr, Node<T>* p = nullptr) :
-    element(e), next(n), previous(p) {}
-    
-    friend class Deque<T>;
-};
-
 template <typename T>
 class Deque {
 private:
-    Node<T>* head;
-    Node<T>* tail;
-    int sz = 0;
+    DoublyLinkedList<T> list;
 public:
     // Constructor and Destructor
     Deque() { cout << "Deque has been created!" << endl; }
     ~Deque() { cout << "Deque has been destroyed." << endl; }
 
     // strucyutre
-    bool isEmpty() const;
+    bool isEmpty() const {
+        return list.empty();
+    }
     int size() const;
     void pushLeft(const T& item);
     void pushRight(const T& item);
