@@ -11,11 +11,12 @@ using namespace std;
 
 int main() {
     Deque<int> dq;
+    
     dq.pushLeft(123);
     dq.pushRight(456);
     dq.pushRight(789);
-    cout << "Popped element: " << dq.popLeft() << endl;
-    cout << "Popped element: " << dq.popRight() << endl;
-    
+    dq.print();
+    dq.clear();
+    dq.printRev();
     return 0;
 }

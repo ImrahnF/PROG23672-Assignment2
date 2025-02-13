@@ -30,6 +30,7 @@ public:
     int size() const {
         return list.size();
     }
+    
     void pushLeft(const T& item) {
         list.addFirst(item);
     }
@@ -53,14 +54,38 @@ public:
     }
     
     void clear() {
+        list.clear();
+    }
+    
+    void print() const {
+        if (isEmpty()) {
+            cout << "The Deque is empty. Cannot print any items." << endl;
+            return;
+        }
+        
+        SNode<T>* currentItem = list.getHead()->next;
+        cout << "Items in Deque: " << endl;
+        while (currentItem->next != nullptr) { // make sure the next item isn't null
+            cout << " * [" << currentItem->elem << "] ";
+            currentItem = currentItem->next; // incremenet it
+        }
+        cout << endl << endl;
         
     }
     
-    void print() {
+    void printRev() const {
+        if (isEmpty()) {
+            cout << "The Deque is empty. Cannot print any items." << endl;
+            return;
+        }
         
-    }
-    
-    void printRev() {
+        SNode<T>* currentItem = list.getTail()->prev;
+        cout << "Items in Deque (reversed): " << endl;
+        while (currentItem != list.getHead()) {
+            cout << " * [" << currentItem->elem << "] ";
+            currentItem = currentItem->prev; // incremenet it
+        }
+        cout << endl << endl;
         
     }
     

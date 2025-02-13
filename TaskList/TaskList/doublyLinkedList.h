@@ -29,6 +29,10 @@ public:
         tail->prev = head;
     }
     
+    // get head and tail
+    SNode<E>* getHead() const { return head; }
+    SNode<E>* getTail() const { return tail; }
+    
     // return size of list
     int size() const {
         return sz;
