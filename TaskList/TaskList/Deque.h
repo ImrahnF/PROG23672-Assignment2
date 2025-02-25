@@ -19,8 +19,8 @@ private:
     DoublyLinkedList<T> list;
 public:
     // Constructor and Destructor
-    Deque() { cout << "Deque has been created!" << endl; }
-    ~Deque() { clear(); }
+    //Deque(){}
+    //~Deque(){}
 
     // strucyutre
     bool isEmpty() const {

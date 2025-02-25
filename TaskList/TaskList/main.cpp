@@ -83,10 +83,11 @@ int main() {
     
     int choice = 0;
     Deque<string> dq;
-    dq.pushRight("Cleaning");
-    dq.pushRight("Sleeping");
-    dq.pushRight("Breathing");
-    
+    /*
+    dq.pushRight("Important");
+    dq.pushRight("Neutral");
+    dq.pushRight("Not Important");
+    */
     do {
         display_options();
         
@@ -127,13 +128,5 @@ int main() {
         
     }
     while (choice != 8);
-    
-    /*
-    dq.pushLeft(123);
-    dq.pushRight(456);
-    dq.pushRight(789);
-    dq.print();
-    dq.printRev();
-    */
     return 0;
 }
