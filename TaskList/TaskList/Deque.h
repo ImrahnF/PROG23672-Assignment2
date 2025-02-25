@@ -42,7 +42,6 @@ public:
     T popLeft() {
         if (isEmpty()) {
             throw std::runtime_error("\nError: list is empty; cannot popLeft()");
-            // maybe return a nullptr
         } else {
             T elem = list.first();
             list.removeFirst();
@@ -53,7 +52,6 @@ public:
     T popRight() {
         if (isEmpty()) {
             throw std::runtime_error("\nError: list is empty; cannot popRight()");
-            // maybe return a nullptr
         } else {
             T elem = list.last();
             list.removeLast();
@@ -62,19 +60,27 @@ public:
     }
     
     void clear() {
-        list.clear();
+        cout << "\n/////////////////////////////" << endl;
+        if (isEmpty()) {
+            cout << "There were no pending tasks to clear." << endl;
+        } else {
+            list.clear();
+            cout << "Cleared all pending tasks." << endl;
+        }
+        cout << "/////////////////////////////\n" << endl;
     }
     
     void print() const {
         if (isEmpty()) {
-            cout << "The Deque is empty. Cannot print any items." << endl;
+            cout << "There are currently no pending tasks.\n" << endl;
             return;
         }
+        int counter = 1;
         
         SNode<T>* currentItem = list.getHead()->next;
-        cout << "Items in Deque: " << endl;
+        cout << "Tasks to Complete (" << size() << "): " << endl;
         while (currentItem->next != nullptr) { // make sure the next item isn't null
-            cout << " * [" << currentItem->elem << "] ";
+            cout << counter++ << ". [" << currentItem->elem << "]" << endl;
             currentItem = currentItem->next; // incremenet it
         }
         cout << endl << endl;
@@ -83,14 +89,16 @@ public:
     
     void printRev() const {
         if (isEmpty()) {
-            cout << "The Deque is empty. Cannot print any items." << endl;
+            cout << "There are currently no pending tasks.\n" << endl;
             return;
         }
         
+        int counter = size();
+        
         SNode<T>* currentItem = list.getTail()->prev;
-        cout << "Items in Deque (reversed): " << endl;
+        cout << "Tasks to Complete (reversed) (" << size() << "): " << endl;
         while (currentItem != list.getHead()) {
-            cout << " * [" << currentItem->elem << "] ";
+            cout << counter-- << ". [" << currentItem->elem << "] " << endl;
             currentItem = currentItem->prev; // incremenet it
         }
         cout << endl << endl;
