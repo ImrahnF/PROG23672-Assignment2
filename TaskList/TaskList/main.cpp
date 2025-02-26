@@ -40,6 +40,7 @@ bool validateDigits(int& choice) {
     return true;
 }
 
+// String validation
 bool validateString(string& choice) {
     cin >> choice;
 
@@ -51,6 +52,7 @@ bool validateString(string& choice) {
     return true; // non-empty
 }
 
+// Ensure we handle edge cases of popping an empty list
 void validatePop(Deque<string>& dq, int priority) {
     if (dq.isEmpty()) {
         cout << "There are currently no pending tasks to complete.\n" << endl;
@@ -65,6 +67,7 @@ void validatePop(Deque<string>& dq, int priority) {
     
 }
 
+// Validate and create a task to add to the list
 string createTask() {
     string task;
     cout << "\n\n--||Creating a Task||--" << endl;
@@ -81,16 +84,14 @@ string createTask() {
 int main() {
     cout << "Welcome to the Task List where you can manage your tasks!\nHere are your options:\n\n";
     
+    // Create Deque and keep track of current user choice.
     int choice = 0;
     Deque<string> dq;
-    /*
-    dq.pushRight("Important");
-    dq.pushRight("Neutral");
-    dq.pushRight("Not Important");
-    */
+
     do {
         display_options();
         
+        // Ensure a valid choice is selected
         if (!validateDigits(choice)) {
             cout << "\n\n--||Invalid input. Please try again||--\n\n" << endl;
             continue;
@@ -122,7 +123,6 @@ int main() {
                 cout << "\nThank you for using the program!" << endl;
                 break;
             default:
-                cout << "\nThank you for using the program!" << endl;
                 break;
         }
         

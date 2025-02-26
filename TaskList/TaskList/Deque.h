@@ -22,7 +22,7 @@ public:
     //Deque(){}
     //~Deque(){}
 
-    // strucyutre
+    // Self explanatory methods
     bool isEmpty() const {
         return list.empty();
     }
@@ -39,6 +39,7 @@ public:
         list.addLast(item);
     }
     
+    // Throw error if we have an empty list. If not, return the element and delete.
     T popLeft() {
         if (isEmpty()) {
             throw std::runtime_error("\nError: list is empty; cannot popLeft()");
@@ -49,6 +50,7 @@ public:
         }
     }
     
+    // Throw error if we have an empty list. If not, return the element and delete.
     T popRight() {
         if (isEmpty()) {
             throw std::runtime_error("\nError: list is empty; cannot popRight()");
@@ -59,6 +61,7 @@ public:
         }
     }
     
+    // Attempt to clear list and notify result.
     void clear() {
         cout << "\n/////////////////////////////" << endl;
         if (isEmpty()) {
@@ -70,18 +73,21 @@ public:
         cout << "/////////////////////////////\n" << endl;
     }
     
+    // Print in normal order
     void print() const {
         if (isEmpty()) {
             cout << "There are currently no pending tasks.\n" << endl;
             return;
         }
-        int counter = 1;
         
-        SNode<T>* currentItem = list.getHead()->next;
+        int counter = 1; // Used to show priority of task
+        SNode<T>* currentItem = list.getHead()->next; // Iteratable Node
+        
+        
         cout << "Tasks to Complete (" << size() << "): " << endl;
-        while (currentItem->next != nullptr) { // make sure the next item isn't null
-            cout << counter++ << ". [" << currentItem->elem << "]" << endl;
-            currentItem = currentItem->next; // incremenet it
+        while (currentItem->next != nullptr) { // Make sure the next item isn't null
+            cout << counter++ << ". [" << currentItem->elem << "]" << endl; // Print task
+            currentItem = currentItem->next; // Incremenet it
         }
         cout << endl << endl;
         
@@ -93,9 +99,9 @@ public:
             return;
         }
         
-        int counter = size();
-        
+        int counter = size(); // Priority starts in reversed order
         SNode<T>* currentItem = list.getTail()->prev;
+        // Same as print()
         cout << "Tasks to Complete (reversed) (" << size() << "): " << endl;
         while (currentItem != list.getHead()) {
             cout << counter-- << ". [" << currentItem->elem << "] " << endl;

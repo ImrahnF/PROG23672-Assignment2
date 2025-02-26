@@ -29,11 +29,11 @@ public:
         tail->prev = head;
     }
     
-    // get head and tail
+    // Get head and tail elements
     const SNode<E>* getHead() const { return head; }
     const SNode<E>* getTail() const { return tail; }
     
-    // return size of list
+    // Return size of list
     int size() const {
         return sz;
     }
